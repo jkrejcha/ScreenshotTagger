@@ -25,7 +25,7 @@ namespace ScreenshotTagger
 			List<AutotagPlugin> plugins = [];
 			foreach (String file in Directory.GetFiles(PluginsDir, "*.dll", SearchOption.TopDirectoryOnly))
 			{
-				Assembly pluginAssembly = Assembly.Load(file);
+				Assembly pluginAssembly = Assembly.LoadFile(file);
 				foreach (Type t in pluginAssembly.GetTypes().Where(t => t.IsSubclassOf(typeof(AutotagPlugin))))
 				{
 					// TODO: Error checking

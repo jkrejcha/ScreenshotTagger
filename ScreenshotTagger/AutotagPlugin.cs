@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace ScreenshotTagger
 {
+	// TODO: Split core plugin thing so that this doesn't depend on Windows
 	/// <summary>
 	/// Autotag plugins automatically tag things in predetermined ways.
 	/// </summary>
