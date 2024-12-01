@@ -66,7 +66,7 @@ namespace ScreenshotTagger
 			pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 			pictureBox1.Location = new Point(361, 12);
 			pictureBox1.Name = "pictureBox1";
-			pictureBox1.Size = new Size(717, 510);
+			pictureBox1.Size = new Size(690, 510);
 			pictureBox1.TabIndex = 1;
 			pictureBox1.TabStop = false;
 			// 
@@ -137,7 +137,7 @@ namespace ScreenshotTagger
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(1086, 534);
+			ClientSize = new Size(1059, 527);
 			Controls.Add(dtpFilterAfter);
 			Controls.Add(lblFilterAfter);
 			Controls.Add(lbTags);
@@ -150,7 +150,8 @@ namespace ScreenshotTagger
 			Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			Margin = new Padding(3, 4, 3, 4);
 			Name = "FormMain";
-			Text = "Form1";
+			Text = "ScreenshotTagger";
+			WindowState = FormWindowState.Maximized;
 			FormClosing += FormMain_FormClosing;
 			Load += FormMain_Load;
 			((System.ComponentModel.ISupportInitialize)fswScreenshotDir).EndInit();
