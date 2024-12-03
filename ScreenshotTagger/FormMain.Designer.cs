@@ -34,7 +34,7 @@ namespace ScreenshotTagger
 			components = new System.ComponentModel.Container();
 			btnSave = new Button();
 			fswScreenshotDir = new System.IO.FileSystemWatcher();
-			pictureBox1 = new PictureBox();
+			pbMain = new PictureBox();
 			lbFiles = new ListBox();
 			lblUserUntagged = new Label();
 			tbNewTag = new TextBox();
@@ -45,7 +45,7 @@ namespace ScreenshotTagger
 			tmrAutosave = new Timer(components);
 			cbAutosave = new CheckBox();
 			((System.ComponentModel.ISupportInitialize)fswScreenshotDir).BeginInit();
-			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+			((System.ComponentModel.ISupportInitialize)pbMain).BeginInit();
 			SuspendLayout();
 			// 
 			// btnSave
@@ -64,14 +64,14 @@ namespace ScreenshotTagger
 			fswScreenshotDir.SynchronizingObject = this;
 			fswScreenshotDir.Changed += fswScreenshotDir_Changed;
 			// 
-			// pictureBox1
+			// pbMain
 			// 
-			pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-			pictureBox1.Location = new Point(361, 12);
-			pictureBox1.Name = "pictureBox1";
-			pictureBox1.Size = new Size(690, 510);
-			pictureBox1.TabIndex = 1;
-			pictureBox1.TabStop = false;
+			pbMain.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+			pbMain.Location = new Point(361, 12);
+			pbMain.Name = "pbMain";
+			pbMain.Size = new Size(690, 510);
+			pbMain.TabIndex = 1;
+			pbMain.TabStop = false;
 			// 
 			// lbFiles
 			// 
@@ -168,7 +168,7 @@ namespace ScreenshotTagger
 			Controls.Add(tbNewTag);
 			Controls.Add(lblUserUntagged);
 			Controls.Add(lbFiles);
-			Controls.Add(pictureBox1);
+			Controls.Add(pbMain);
 			Controls.Add(btnSave);
 			Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			Margin = new Padding(3, 4, 3, 4);
@@ -178,7 +178,7 @@ namespace ScreenshotTagger
 			FormClosing += FormMain_FormClosing;
 			Load += FormMain_Load;
 			((System.ComponentModel.ISupportInitialize)fswScreenshotDir).EndInit();
-			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+			((System.ComponentModel.ISupportInitialize)pbMain).EndInit();
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -187,7 +187,7 @@ namespace ScreenshotTagger
 
 		private Button btnSave;
 		private System.IO.FileSystemWatcher fswScreenshotDir;
-		private PictureBox pictureBox1;
+		private PictureBox pbMain;
 		private ListBox lbFiles;
 		private Label lblUserUntagged;
 		private Button btnAddTag;

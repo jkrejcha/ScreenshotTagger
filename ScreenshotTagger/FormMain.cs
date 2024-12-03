@@ -45,6 +45,7 @@ namespace ScreenshotTagger
 			f.Close();
 			UpdateUntaggedList();
 			Dirty = false;
+			btnSave.Enabled = false;
 		}
 
 		private async Task SaveDatabaseAsync()
@@ -108,6 +109,7 @@ namespace ScreenshotTagger
 				Database[filePath] = [tag];
 			}
 			Dirty = true;
+			btnSave.Enabled = true;
 		}
 
 		private String? CurrentlySelectedFile
@@ -122,7 +124,7 @@ namespace ScreenshotTagger
 		private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			String file = CurrentlySelectedFile!;
-			pictureBox1.Image = Image.FromFile(file);
+			pbMain.Image = Image.FromFile(file);
 			lbTags.Items.Clear();
 			foreach (ScreenshotTag tag in Database.GetValueOrDefault(file, []))
 			{
@@ -147,7 +149,6 @@ namespace ScreenshotTagger
 			});
 			tbNewTag.Clear();
 			listBox1_SelectedIndexChanged(sender, e);
-			Dirty = true;
 		}
 
 		private async void FormMain_FormClosing(object sender, FormClosingEventArgs e)
