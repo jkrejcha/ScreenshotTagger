@@ -31,6 +31,7 @@ namespace ScreenshotTagger
 		/// </summary>
 		private void InitializeComponent()
 		{
+			components = new System.ComponentModel.Container();
 			btnSave = new Button();
 			fswScreenshotDir = new System.IO.FileSystemWatcher();
 			pictureBox1 = new PictureBox();
@@ -41,6 +42,8 @@ namespace ScreenshotTagger
 			lbTags = new ListBox();
 			lblFilterAfter = new Label();
 			dtpFilterAfter = new DateTimePicker();
+			tmrAutosave = new Timer(components);
+			cbAutosave = new CheckBox();
 			((System.ComponentModel.ISupportInitialize)fswScreenshotDir).BeginInit();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			SuspendLayout();
@@ -53,7 +56,7 @@ namespace ScreenshotTagger
 			btnSave.TabIndex = 0;
 			btnSave.Text = "Save Database";
 			btnSave.UseVisualStyleBackColor = true;
-			btnSave.Click += btnSave_Click;
+			btnSave.Click += SaveEventHandler;
 			// 
 			// fswScreenshotDir
 			// 
@@ -133,11 +136,31 @@ namespace ScreenshotTagger
 			dtpFilterAfter.TabIndex = 8;
 			dtpFilterAfter.ValueChanged += dateTimePicker1_ValueChanged;
 			// 
+			// tmrAutosave
+			// 
+			tmrAutosave.Enabled = true;
+			tmrAutosave.Interval = 60000;
+			tmrAutosave.Tick += SaveEventHandler;
+			// 
+			// cbAutosave
+			// 
+			cbAutosave.AutoSize = true;
+			cbAutosave.Checked = true;
+			cbAutosave.CheckState = CheckState.Checked;
+			cbAutosave.Location = new Point(160, 12);
+			cbAutosave.Name = "cbAutosave";
+			cbAutosave.Size = new Size(138, 24);
+			cbAutosave.TabIndex = 9;
+			cbAutosave.Text = "Enable Autosave";
+			cbAutosave.UseVisualStyleBackColor = true;
+			cbAutosave.CheckedChanged += cbAutosave_CheckedChanged;
+			// 
 			// FormMain
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
 			ClientSize = new Size(1059, 527);
+			Controls.Add(cbAutosave);
 			Controls.Add(dtpFilterAfter);
 			Controls.Add(lblFilterAfter);
 			Controls.Add(lbTags);
@@ -172,5 +195,7 @@ namespace ScreenshotTagger
 		private ListBox lbTags;
 		private DateTimePicker dtpFilterAfter;
 		private Label lblFilterAfter;
+		private Timer tmrAutosave;
+		private CheckBox cbAutosave;
 	}
 }

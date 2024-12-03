@@ -163,9 +163,14 @@ namespace ScreenshotTagger
 			if (result == DialogResult.Cancel) e.Cancel = true;
 		}
 
-		private async void btnSave_Click(object sender, EventArgs e)
+		private async void SaveEventHandler(object sender, EventArgs e)
 		{
 			await SaveDatabaseAsync();
+		}
+
+		private void cbAutosave_CheckedChanged(object sender, EventArgs e)
+		{
+			tmrAutosave.Enabled = cbAutosave.Checked;
 		}
 	}
 }
