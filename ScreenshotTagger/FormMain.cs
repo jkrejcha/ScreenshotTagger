@@ -48,13 +48,27 @@ namespace ScreenshotTagger
 			btnSave.Enabled = false;
 		}
 
-		private async Task SaveDatabaseAsync()
+		private async Task SaveDatabaseAsync(String text = "Saved")
 		{
 			FileStream f = File.Open(DatabaseFilename, FileMode.OpenOrCreate, FileAccess.Write, FileShare.Read);
 			// TODO: Error checking
 			await JsonSerializer.SerializeAsync(f, this.Database);
 			f.Close();
 			Dirty = false;
+			UpdateLabel(text);
+		}
+
+		private void UpdateLabel(String text = "Saved")
+		{
+			DateTimeOffset now = DateTimeOffset.UtcNow;
+			if (InvokeRequired)
+			{
+				Invoke(() => { lblStatus.Text = $"{text} at {now:g}"; });
+			}
+			else
+			{
+				lblStatus.Text = $"{text} at {now:g}";
+			}
 		}
 
 		private void UpdateUntaggedList()
@@ -166,7 +180,7 @@ namespace ScreenshotTagger
 
 		private async void SaveEventHandler(object sender, EventArgs e)
 		{
-			await SaveDatabaseAsync();
+			await SaveDatabaseAsync("Autosaved");
 		}
 
 		private void cbAutosave_CheckedChanged(object sender, EventArgs e)

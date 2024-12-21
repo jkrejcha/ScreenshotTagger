@@ -44,13 +44,18 @@ namespace ScreenshotTagger
 			dtpFilterAfter = new DateTimePicker();
 			tmrAutosave = new Timer(components);
 			cbAutosave = new CheckBox();
+			tcMain = new TabControl();
+			tpUserUntagged = new TabPage();
+			lblStatus = new Label();
 			((System.ComponentModel.ISupportInitialize)fswScreenshotDir).BeginInit();
 			((System.ComponentModel.ISupportInitialize)pbMain).BeginInit();
+			tcMain.SuspendLayout();
+			tpUserUntagged.SuspendLayout();
 			SuspendLayout();
 			// 
 			// btnSave
 			// 
-			btnSave.Location = new Point(12, 12);
+			btnSave.Location = new Point(6, 6);
 			btnSave.Name = "btnSave";
 			btnSave.Size = new Size(142, 28);
 			btnSave.TabIndex = 0;
@@ -67,9 +72,9 @@ namespace ScreenshotTagger
 			// pbMain
 			// 
 			pbMain.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-			pbMain.Location = new Point(361, 12);
+			pbMain.Location = new Point(355, 6);
 			pbMain.Name = "pbMain";
-			pbMain.Size = new Size(690, 510);
+			pbMain.Size = new Size(658, 532);
 			pbMain.TabIndex = 1;
 			pbMain.TabStop = false;
 			// 
@@ -77,7 +82,7 @@ namespace ScreenshotTagger
 			// 
 			lbFiles.FormattingEnabled = true;
 			lbFiles.ItemHeight = 20;
-			lbFiles.Location = new Point(12, 69);
+			lbFiles.Location = new Point(6, 86);
 			lbFiles.Name = "lbFiles";
 			lbFiles.Size = new Size(343, 164);
 			lbFiles.TabIndex = 2;
@@ -86,7 +91,7 @@ namespace ScreenshotTagger
 			// lblUserUntagged
 			// 
 			lblUserUntagged.AutoSize = true;
-			lblUserUntagged.Location = new Point(12, 43);
+			lblUserUntagged.Location = new Point(6, 60);
 			lblUserUntagged.Name = "lblUserUntagged";
 			lblUserUntagged.Size = new Size(108, 20);
 			lblUserUntagged.TabIndex = 3;
@@ -94,7 +99,7 @@ namespace ScreenshotTagger
 			// 
 			// tbNewTag
 			// 
-			tbNewTag.Location = new Point(12, 265);
+			tbNewTag.Location = new Point(6, 282);
 			tbNewTag.Name = "tbNewTag";
 			tbNewTag.PlaceholderText = "New Tag";
 			tbNewTag.Size = new Size(216, 27);
@@ -102,7 +107,7 @@ namespace ScreenshotTagger
 			// 
 			// btnAddTag
 			// 
-			btnAddTag.Location = new Point(234, 265);
+			btnAddTag.Location = new Point(228, 282);
 			btnAddTag.Name = "btnAddTag";
 			btnAddTag.Size = new Size(121, 27);
 			btnAddTag.TabIndex = 5;
@@ -114,7 +119,7 @@ namespace ScreenshotTagger
 			// 
 			lbTags.FormattingEnabled = true;
 			lbTags.ItemHeight = 20;
-			lbTags.Location = new Point(12, 298);
+			lbTags.Location = new Point(6, 315);
 			lbTags.Name = "lbTags";
 			lbTags.Size = new Size(343, 224);
 			lbTags.TabIndex = 6;
@@ -122,7 +127,7 @@ namespace ScreenshotTagger
 			// lblFilterAfter
 			// 
 			lblFilterAfter.AutoSize = true;
-			lblFilterAfter.Location = new Point(12, 239);
+			lblFilterAfter.Location = new Point(6, 256);
 			lblFilterAfter.Name = "lblFilterAfter";
 			lblFilterAfter.Size = new Size(79, 20);
 			lblFilterAfter.TabIndex = 7;
@@ -130,7 +135,7 @@ namespace ScreenshotTagger
 			// 
 			// dtpFilterAfter
 			// 
-			dtpFilterAfter.Location = new Point(97, 234);
+			dtpFilterAfter.Location = new Point(91, 251);
 			dtpFilterAfter.Name = "dtpFilterAfter";
 			dtpFilterAfter.Size = new Size(258, 27);
 			dtpFilterAfter.TabIndex = 8;
@@ -147,7 +152,7 @@ namespace ScreenshotTagger
 			cbAutosave.AutoSize = true;
 			cbAutosave.Checked = true;
 			cbAutosave.CheckState = CheckState.Checked;
-			cbAutosave.Location = new Point(160, 12);
+			cbAutosave.Location = new Point(154, 6);
 			cbAutosave.Name = "cbAutosave";
 			cbAutosave.Size = new Size(138, 24);
 			cbAutosave.TabIndex = 9;
@@ -155,21 +160,51 @@ namespace ScreenshotTagger
 			cbAutosave.UseVisualStyleBackColor = true;
 			cbAutosave.CheckedChanged += cbAutosave_CheckedChanged;
 			// 
+			// tcMain
+			// 
+			tcMain.Controls.Add(tpUserUntagged);
+			tcMain.Dock = DockStyle.Fill;
+			tcMain.Location = new Point(0, 0);
+			tcMain.Name = "tcMain";
+			tcMain.SelectedIndex = 0;
+			tcMain.Size = new Size(1027, 577);
+			tcMain.TabIndex = 10;
+			// 
+			// tpUserUntagged
+			// 
+			tpUserUntagged.Controls.Add(lblStatus);
+			tpUserUntagged.Controls.Add(btnSave);
+			tpUserUntagged.Controls.Add(cbAutosave);
+			tpUserUntagged.Controls.Add(pbMain);
+			tpUserUntagged.Controls.Add(dtpFilterAfter);
+			tpUserUntagged.Controls.Add(lbFiles);
+			tpUserUntagged.Controls.Add(lblFilterAfter);
+			tpUserUntagged.Controls.Add(lblUserUntagged);
+			tpUserUntagged.Controls.Add(lbTags);
+			tpUserUntagged.Controls.Add(tbNewTag);
+			tpUserUntagged.Controls.Add(btnAddTag);
+			tpUserUntagged.Location = new Point(4, 29);
+			tpUserUntagged.Name = "tpUserUntagged";
+			tpUserUntagged.Padding = new Padding(3);
+			tpUserUntagged.Size = new Size(1019, 544);
+			tpUserUntagged.TabIndex = 0;
+			tpUserUntagged.Text = "User Untagged";
+			tpUserUntagged.UseVisualStyleBackColor = true;
+			// 
+			// lblStatus
+			// 
+			lblStatus.AutoSize = true;
+			lblStatus.Location = new Point(6, 37);
+			lblStatus.Name = "lblStatus";
+			lblStatus.Size = new Size(0, 20);
+			lblStatus.TabIndex = 10;
+			// 
 			// FormMain
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(1059, 527);
-			Controls.Add(cbAutosave);
-			Controls.Add(dtpFilterAfter);
-			Controls.Add(lblFilterAfter);
-			Controls.Add(lbTags);
-			Controls.Add(btnAddTag);
-			Controls.Add(tbNewTag);
-			Controls.Add(lblUserUntagged);
-			Controls.Add(lbFiles);
-			Controls.Add(pbMain);
-			Controls.Add(btnSave);
+			ClientSize = new Size(1027, 577);
+			Controls.Add(tcMain);
 			Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
 			Margin = new Padding(3, 4, 3, 4);
 			Name = "FormMain";
@@ -179,8 +214,10 @@ namespace ScreenshotTagger
 			Load += FormMain_Load;
 			((System.ComponentModel.ISupportInitialize)fswScreenshotDir).EndInit();
 			((System.ComponentModel.ISupportInitialize)pbMain).EndInit();
+			tcMain.ResumeLayout(false);
+			tpUserUntagged.ResumeLayout(false);
+			tpUserUntagged.PerformLayout();
 			ResumeLayout(false);
-			PerformLayout();
 		}
 
 		#endregion
@@ -197,5 +234,8 @@ namespace ScreenshotTagger
 		private Label lblFilterAfter;
 		private Timer tmrAutosave;
 		private CheckBox cbAutosave;
+		private TabControl tcMain;
+		private TabPage tpUserUntagged;
+		private Label lblStatus;
 	}
 }
