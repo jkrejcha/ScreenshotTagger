@@ -12,7 +12,7 @@ namespace ScreenshotTagger
 		private const String PluginsDir = "plugins";
 		
 		/// <summary>
-		///  The main entry point for the application.
+		/// The main entry point for the application.
 		/// </summary>
 		[STAThread]
 		internal static void Main(String[] args)
