@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ScreenshotTagger.Plugin;
 
 namespace ScreenshotTagger
 {

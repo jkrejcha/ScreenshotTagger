@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ScreenshotTagger
+namespace ScreenshotTagger.Plugin
 {
 	// TODO: Split core plugin thing so that this doesn't depend on Windows
 	/// <summary>
