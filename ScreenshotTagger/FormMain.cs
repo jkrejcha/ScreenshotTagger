@@ -23,10 +23,12 @@ namespace ScreenshotTagger
 		private Boolean Dirty { get; set; } = false;
 		private String ScreenshotDir { get; set; }
 		private List<AutotagPlugin> Plugins { get; set; }
+		private List<LogEntry> PluginLoadingLogEntries { get; set; }
 
-		public FormMain(List<AutotagPlugin> plugins, String dir)
+		public FormMain(List<AutotagPlugin> plugins, List<LogEntry> pluginLoadingLogEntries, String dir)
 		{
 			Plugins = plugins;
+			PluginLoadingLogEntries = pluginLoadingLogEntries;
 			ScreenshotDir = dir;
 			InitializeComponent();
 			fswScreenshotDir.Path = dir;

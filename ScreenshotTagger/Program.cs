@@ -24,6 +24,7 @@ namespace ScreenshotTagger
 
 			// Configure autotag plugins
 			List<AutotagPlugin> plugins = [];
+			List<LogEntry> entries = [];
 			foreach (String file in Directory.GetFiles(PluginsDir, "*.dll", SearchOption.TopDirectoryOnly))
 			{
 				Assembly pluginAssembly = Assembly.LoadFrom(Path.GetFullPath(file));
@@ -33,18 +34,40 @@ namespace ScreenshotTagger
 					{
 						// TODO: Error checking
 						// TODO: Maybe C compat?
+						// TODO: Maybe Python compat?
 						plugins.Add((AutotagPlugin)t.GetConstructor([])!.Invoke([]));
 					}
 				}
-				catch
+				catch (Exception e)
 				{
+					entries.Add(new LogEntry() { Text = $"Failed to load plugin file ({file}): {e.Message}" });
 					// TODO: Handle this
 				}
 			}
 
+			String dirName;
+			if (args.Length >= 1)
+			{
+				dirName = args[0];
+			}
+			else
+			{
+				FolderBrowserDialog fbd = new FolderBrowserDialog()
+				{
+					Description = "Choose a directory to monitor..."
+				};
+				if (fbd.ShowDialog() == DialogResult.OK)
+				{
+					dirName = fbd.SelectedPath;
+				}
+				else
+				{
+					return;
+				}
+			}
 
 			// Run the app
-			Application.Run(new FormMain(plugins, args[0])); // TODO: Error checking
+			Application.Run(new FormMain(plugins, entries, dirName));
 		}
 	}
 }
