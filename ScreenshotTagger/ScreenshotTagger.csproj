@@ -10,10 +10,29 @@
     <Version>0.1.12</Version>
     <Title>Screenshot Tagger</Title>
     <Authors>Justine Krejcha</Authors>
+    <PackageIcon>ScreenshotTagger.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/jkrejcha/ScreenshotTagger</RepositoryUrl>
+    <ApplicationIcon>ScreenshotTagger.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="ScreenshotTagger.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\ScreenshotTagger.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>

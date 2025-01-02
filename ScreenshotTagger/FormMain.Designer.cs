@@ -32,6 +32,7 @@ namespace ScreenshotTagger
 		private void InitializeComponent()
 		{
 			components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
 			btnSave = new Button();
 			fswScreenshotDir = new System.IO.FileSystemWatcher();
 			pbMain = new PictureBox();
@@ -206,6 +207,7 @@ namespace ScreenshotTagger
 			ClientSize = new Size(1027, 577);
 			Controls.Add(tcMain);
 			Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+			Icon = (Icon)resources.GetObject("$this.Icon");
 			Margin = new Padding(3, 4, 3, 4);
 			Name = "FormMain";
 			Text = "ScreenshotTagger";
