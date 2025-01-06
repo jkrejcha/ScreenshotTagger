@@ -48,10 +48,13 @@ namespace ScreenshotTagger
 			tcMain = new TabControl();
 			tpUserUntagged = new TabPage();
 			lblStatus = new Label();
+			tpInfo = new TabPage();
+			lblInfoText = new Label();
 			((System.ComponentModel.ISupportInitialize)fswScreenshotDir).BeginInit();
 			((System.ComponentModel.ISupportInitialize)pbMain).BeginInit();
 			tcMain.SuspendLayout();
 			tpUserUntagged.SuspendLayout();
+			tpInfo.SuspendLayout();
 			SuspendLayout();
 			// 
 			// btnSave
@@ -164,6 +167,7 @@ namespace ScreenshotTagger
 			// tcMain
 			// 
 			tcMain.Controls.Add(tpUserUntagged);
+			tcMain.Controls.Add(tpInfo);
 			tcMain.Dock = DockStyle.Fill;
 			tcMain.Location = new Point(0, 0);
 			tcMain.Name = "tcMain";
@@ -200,6 +204,27 @@ namespace ScreenshotTagger
 			lblStatus.Size = new Size(0, 20);
 			lblStatus.TabIndex = 10;
 			// 
+			// tpInfo
+			// 
+			tpInfo.Controls.Add(lblInfoText);
+			tpInfo.Location = new Point(4, 29);
+			tpInfo.Name = "tpInfo";
+			tpInfo.Padding = new Padding(3);
+			tpInfo.Size = new Size(1019, 544);
+			tpInfo.TabIndex = 1;
+			tpInfo.Text = "Info";
+			tpInfo.ToolTipText = "Information on plugin status, selected folder, etc";
+			tpInfo.UseVisualStyleBackColor = true;
+			// 
+			// lblInfoText
+			// 
+			lblInfoText.AutoSize = true;
+			lblInfoText.Location = new Point(8, 13);
+			lblInfoText.Name = "lblInfoText";
+			lblInfoText.Size = new Size(154, 20);
+			lblInfoText.TabIndex = 0;
+			lblInfoText.Text = "Loading information...";
+			// 
 			// FormMain
 			// 
 			AutoScaleDimensions = new SizeF(8F, 20F);
@@ -219,6 +244,8 @@ namespace ScreenshotTagger
 			tcMain.ResumeLayout(false);
 			tpUserUntagged.ResumeLayout(false);
 			tpUserUntagged.PerformLayout();
+			tpInfo.ResumeLayout(false);
+			tpInfo.PerformLayout();
 			ResumeLayout(false);
 		}
 
@@ -239,5 +266,7 @@ namespace ScreenshotTagger
 		private TabControl tcMain;
 		private TabPage tpUserUntagged;
 		private Label lblStatus;
+		private TabPage tpInfo;
+		private Label lblInfoText;
 	}
 }

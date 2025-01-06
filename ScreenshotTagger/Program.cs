@@ -56,7 +56,7 @@ namespace ScreenshotTagger
 				{
 					Description = "Choose a directory to monitor..."
 				};
-				if (fbd.ShowDialog() == DialogResult.OK)
+				if (fbd.ShowDialog() == DialogResult.OK && fbd.SelectedPath != "")
 				{
 					dirName = fbd.SelectedPath;
 				}

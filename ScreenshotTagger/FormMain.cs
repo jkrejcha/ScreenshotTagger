@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -38,6 +39,17 @@ namespace ScreenshotTagger
 		private async void FormMain_Load(object sender, EventArgs e)
 		{
 			await LoadDatabaseAsync();
+			StringBuilder sb = new StringBuilder(
+				$"Database Filename: {DatabaseFilename}\n"
+				+ $"Folder Watched: {fswScreenshotDir.Path}\n"
+				+ $"Plugins Loaded ({Plugins.Count}):\n"
+			);
+			foreach (AutotagPlugin plugin in Plugins)
+			{
+				Type t = plugin.GetType();
+				sb.AppendLine($"{t.Name} from {t.Assembly.Location}");
+			}
+			lblInfoText.Text = sb.ToString();
 		}
 
 		private async Task LoadDatabaseAsync()
