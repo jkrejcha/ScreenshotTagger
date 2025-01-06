@@ -195,7 +195,8 @@ namespace ScreenshotTagger
 
 		private async void SaveEventHandler(object sender, EventArgs e)
 		{
-			await SaveDatabaseAsync("Autosaved");
+			await SaveDatabaseAsync(sender != tmrAutosave ? "Saved" : "Autosaved");
+			btnSave.Enabled = Dirty;
 		}
 
 		private void cbAutosave_CheckedChanged(object sender, EventArgs e)
