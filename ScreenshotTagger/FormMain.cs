@@ -153,7 +153,12 @@ namespace ScreenshotTagger
 		private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			String file = CurrentlySelectedFile!;
+
+			// Dispose of the imaqge, but only after we change it.
+			Image? toDispose = pbMain.Image;
 			pbMain.Image = Image.FromFile(file);
+			toDispose?.Dispose();
+
 			lbTags.Items.Clear();
 			foreach (ScreenshotTag tag in Database.GetValueOrDefault(file, []))
 			{

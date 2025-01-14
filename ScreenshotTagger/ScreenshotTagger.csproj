@@ -7,7 +7,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>disable</ImplicitUsings>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>0.1.14</Version>
+    <Version>0.1.15</Version>
     <Title>Screenshot Tagger</Title>
     <Authors>Justine Krejcha</Authors>
     <PackageIcon>ScreenshotTagger.png</PackageIcon>
